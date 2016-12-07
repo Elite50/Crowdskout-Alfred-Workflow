@@ -34,6 +34,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F8F31907-4A8B-4E2B-830C-53FA46CA200F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>AD68FEBD-E6F4-4FE1-97B7-1D5700934CC8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Guangyang Li</string>
@@ -53,7 +66,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>126</integer>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>jira</string>
 				<key>queuedelaycustom</key>
@@ -65,7 +78,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>JIRA</string>
+				<string>Crowdskout JIRA</string>
 				<key>script</key>
 				<string>/usr/bin/python jira.py {query}</string>
 				<key>scriptargtype</key>
@@ -73,7 +86,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>JIRA</string>
+				<string>Crowdskout JIRA</string>
 				<key>title</key>
 				<string>JIRA</string>
 				<key>type</key>
@@ -115,7 +128,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>126</integer>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>cs</string>
 				<key>queuedelaycustom</key>
@@ -158,7 +171,7 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>126</integer>
+				<integer>102</integer>
 				<key>keyword</key>
 				<string>cs-update</string>
 				<key>queuedelaycustom</key>
@@ -178,7 +191,7 @@
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string></string>
+				<string>About Crowdskout Alfred Workflow</string>
 				<key>title</key>
 				<string>cs-update</string>
 				<key>type</key>
@@ -190,6 +203,49 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>DE7E634F-2849-44A0-9EBF-8C0391F74AAA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>crowdskout</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python cs.py {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Crowdskout</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F8F31907-4A8B-4E2B-830C-53FA46CA200F</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -221,10 +277,19 @@
 		</dict>
 		<key>DE7E634F-2849-44A0-9EBF-8C0391F74AAA</key>
 		<dict>
+			<key>colorindex</key>
+			<integer>3</integer>
 			<key>xpos</key>
-			<integer>300</integer>
+			<integer>530</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>320</integer>
+		</dict>
+		<key>F8F31907-4A8B-4E2B-830C-53FA46CA200F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>50</integer>
+			<key>ypos</key>
+			<integer>330</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

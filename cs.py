@@ -1,4 +1,4 @@
-from feedback import Feedback
+from workflow import Workflow
 import sys
 
 PAGES = {
@@ -131,9 +131,9 @@ PAGES = {
 APP_URL = 'https://app.crowdskout.com'
 
 
-class CrowdskoutPage(Feedback):
+class CrowdskoutAppWorkflow(Workflow):
     def __init__(self, args):
-        Feedback.__init__(self)
+        Workflow.__init__(self)
         # Default location is dashboar
         self.cs_location = 'dashboard' if len(args) == 1 else str(args[1]).lower()
 
@@ -147,12 +147,16 @@ class CrowdskoutPage(Feedback):
         # Sort the result by the length of URL
         result.sort(key=lambda x: len(x[1]))
         for title, url in result:
-            self.add_item(title=title, subtitle=url, valid='YES', arg=url, icon='icon.png')
+            self.add_item(title=title, subtitle=url, valid='YES', arg=url, icon=u'icon.png')
 
 
-if 1 <= len(sys.argv) <= 2:
-    cs_page = CrowdskoutPage(sys.argv)
+def main(wf):
+    wf.find_location()
 
-    cs_page.find_location()
+    wf.send_feedback()
 
-    print cs_page
+
+if __name__ == '__main__':
+    wf = CrowdskoutAppWorkflow(sys.argv)
+    log = wf.logger
+    sys.exit(wf.run(main))

@@ -4,7 +4,7 @@ import sys
 from workflow import Workflow, ICON_INFO
 
 
-GITHUB_SLUG = 'ligyxy/Crowdskout-Alfred-Workflow'
+GITHUB_SLUG = 'Elite50/Crowdskout-Alfred-Workflow'
 VERSION = open(os.path.join(os.path.dirname(__file__),
                             'version')).read().strip()
 
