@@ -5,8 +5,7 @@ from workflow import Workflow, ICON_INFO
 
 
 GITHUB_SLUG = 'Elite50/Crowdskout-Alfred-Workflow'
-VERSION = open(os.path.join(os.path.dirname(__file__),
-                            'version')).read().strip()
+VERSION = open(os.path.join(os.path.dirname(__file__), 'version')).read().strip()
 
 log = None
 
