@@ -14,5 +14,5 @@ Crowdskout Alfred Workflow
 | ------- | ------------|
 | `crowdskout {endpoint}` | Jump to somewhere in the app |
 | `cs {endpoint}` | Alias of `crowdskout` |
-| `jira {ticket_number}` | Jump to Crowdskout JIRA ticket |
+| `jira {options} {query}` | Jump to Crowdskout JIRA |
 | `cs-update workflow:update` | Run manual update |
