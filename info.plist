@@ -64,7 +64,7 @@
 				<key>alfredfiltersresults</key>
 				<false/>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -78,7 +78,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Crowdskout JIRA</string>
+				<string>Fetching...</string>
 				<key>script</key>
 				<string>/usr/bin/python jira.py {query}</string>
 				<key>scriptargtype</key>
@@ -280,9 +280,9 @@
 			<key>colorindex</key>
 			<integer>3</integer>
 			<key>xpos</key>
-			<integer>530</integer>
+			<integer>570</integer>
 			<key>ypos</key>
-			<integer>320</integer>
+			<integer>250</integer>
 		</dict>
 		<key>F8F31907-4A8B-4E2B-830C-53FA46CA200F</key>
 		<dict>

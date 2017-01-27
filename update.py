@@ -5,7 +5,8 @@ from workflow import Workflow, ICON_INFO
 
 
 GITHUB_SLUG = 'Elite50/Crowdskout-Alfred-Workflow'
-VERSION = open(os.path.join(os.path.dirname(__file__), 'version')).read().strip()
+VERSION = open(os.path.join(os.path.dirname(__file__),
+                            'version')).read().strip()
 
 log = None
 
@@ -15,8 +16,9 @@ def main(wf):
     if len(wf.args):
         query = wf.args[0]
 
-    wf.add_item('Current version : {}'.format(VERSION),
-                'Version currently installed', icon=ICON_INFO)
+    wf.add_item(u'Current version : {}'.format(VERSION),
+                u'Version currently installed',
+                icon=ICON_INFO)
 
     wf.send_feedback()
 

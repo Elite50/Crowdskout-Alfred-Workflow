@@ -76,7 +76,7 @@ PAGES = {
     },
     'daytripper': {
         'endpoint': '/tools/daytripper',
-        'title': ''
+        'title': 'Day Tripper'
     },
     'new-daytripper': {
         'endpoint': '/tools/daytripper/new',
@@ -142,12 +142,12 @@ class CrowdskoutAppWorkflow(Workflow):
         for key, info in PAGES.items():
             location_url = APP_URL + info['endpoint']
             if self.cs_location in key:
-                result.append((info['title'], location_url))
+                result.append((info['title'], location_url, key))
 
         # Sort the result by the length of URL
         result.sort(key=lambda x: len(x[1]))
-        for title, url in result:
-            self.add_item(title=title, subtitle=url, valid='YES', arg=url, icon=u'icon.png')
+        for title, url, key in result:
+            self.add_item(title=title, subtitle=url, valid=True, arg=url, icon=u'icon.png', autocomplete=key)
 
 
 def main(wf):
