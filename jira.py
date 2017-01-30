@@ -1,6 +1,7 @@
 import base64
 import json
 import sys
+import time
 import urllib
 import urllib2
 
@@ -116,40 +117,55 @@ class TicketWorkflow(Workflow):
         query = next(iter(args), '')  # fetch the first item
         ticket_number = '{0}-{1}'.format(DEFAULT_PROJECT, query) if query.isdigit() else query
         ticket_url = self.ticket_url(ticket_number)
-        self.add_item(title="Open Ticket {0}".format(ticket_number),
+
+        self.add_item(title=u"Open Ticket {0}".format(ticket_number),
                       subtitle=ticket_url,
                       valid=True,
                       arg=ticket_url,
                       icon=u'icon.png')
+        time.sleep(0.8)
+
+        jql = urllib.quote('key="{0}"'.format(ticket_number))
+
+        for ticket_number, ticket_title in self.search_from_api(jql=jql, fields='id,key,summary', max=1):
+            ticket_url = self.ticket_url(ticket_number)
+            self.add_item(title=ticket_title,
+                          subtitle=ticket_url,
+                          valid=True,
+                          arg=ticket_url,
+                          icon=u'icon.png')
 
     def search(self, args):
         args = ' '.join(args)
-        self.add_item(title='Search for "{0}"'.format(args),
-                      subtitle='Search for "{0}" in JIRA'.format(args),
+        jql = urllib.quote('text ~ "{0}"'.format(args))
+        self.add_item(title=u'Search for "{0}"'.format(args),
+                      subtitle=u'Search for "{0}" in JIRA'.format(args),
                       valid=True,
-                      arg="{0}/secure/QuickSearch.jspa?searchString={1}".format(BASE_JIRA_URL, urllib.quote(args)),
+                      arg=u"{0}/issues/?jql={1}".format(BASE_JIRA_URL, jql),
                       icon=u'icon.png')
 
-        # for ticket_number, ticket_title in self.search_from_api(query=urllib.quote(args), max=8):
-        #     ticket_url = self.ticket_url(ticket_number)
-        #     self.add_item(title='{0} {1}'.format(ticket_number, ticket_title),
-        #                   subtitle=ticket_url,
-        #                   valid=True,
-        #                   arg=ticket_url,
-        #                   icon=u'icon.png')
+        time.sleep(0.8)
+        for ticket_number, ticket_title in self.search_from_api(jql=jql, fields='id,key,summary', max=8):
+            ticket_url = self.ticket_url(ticket_number)
+            self.add_item(title=ticket_number,
+                          subtitle=ticket_title,
+                          valid=True,
+                          arg=ticket_url,
+                          icon=u'icon.png')
 
     @staticmethod
-    def search_from_api(query, max):
+    def search_from_api(jql, fields, max):
         """
         Given keywords, search it through JIRA API, return the ticket number and title of results
-        :param query: keyword for searching
+        :param jql: keyword for searching
         :param max: maximum number of search result
         :return: iter((ticket_number, ticket_title), )
         """
         # https://developer.atlassian.com/jiradev/jira-apis/jira-rest-apis/jira-rest-api-tutorials/jira-rest-api-example-query-issues
-        api_url = "{0}/rest/api/2/search?jql=text%20~%20%22{1}%22&maxResults={2}&fields=id,key,summary".format(BASE_JIRA_URL, query, max)
+        api_url = "{0}/rest/api/2/search?jql={1}&maxResults={2}&fields={3}".format(BASE_JIRA_URL, jql, max, fields)
         request = urllib2.Request(api_url)
-        api_base64string = base64.b64encode('{0}:{1}'.format('gli@crowdskout.com', '>bGYshQmP;4>N{?<ZL'))
+        # TODO: user/pass input config
+        api_base64string = base64.b64encode('{0}:{1}'.format('user', 'pwd'))
         request.add_header("Authorization", "Basic %s" % api_base64string)
         try:
             request_result = urllib2.urlopen(request).read()
