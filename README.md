@@ -12,16 +12,15 @@ Crowdskout Alfred Workflow
 ## Commands
 | Command | Description |
 | ------- | ------------|
-| `crowdskout {endpoint}` | Jump to somewhere in the app |
+| `crowdskout {endpoint}` | Jump to the given endpoint of Crowdskout |
 | `cs {endpoint}` | Alias of `crowdskout` |
 | `jira {options} {query}` | Jump to Crowdskout JIRA |
 | `jirasetuser {username}` | Set JIRA user name |
 | `jirasetpassword {password}` | Set JIRA password |
 | `jiraclearuser` | Clear JIRA credential settings |
-| `cs-update workflow:update` | Run manual update |
+| `cs-update workflow:update` | Check for update |
 
 JIRA credentials are not required, but they enable advanced ticket searching in `open` and `search` commands.
-
 
 Available JIRA options:
 
