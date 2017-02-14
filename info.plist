@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>063AE9C7-A413-413F-A274-92CD0A820EA7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E770E85C-BC99-4E41-BD62-11048DE36B1D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>6684B104-AF44-4230-8B96-15995CE261C7</key>
 		<array>
 			<dict>
@@ -21,11 +34,37 @@
 				<false/>
 			</dict>
 		</array>
+		<key>92E42786-7E33-4D4E-B354-401B0BDA773D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C12A48F7-43F9-4568-9051-29B09C597A98</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>B0D20967-B4B8-484F-AAA7-DF9C71F19093</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>AD68FEBD-E6F4-4FE1-97B7-1D5700934CC8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CE6CBE19-E16D-4A0A-A9D7-82645143F036</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E95F4370-65BF-4A45-BFEB-997CCDB7A959</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -58,6 +97,69 @@
 	<string>Crowdskout Workflow</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python jira-settings.py --user "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E95F4370-65BF-4A45-BFEB-997CCDB7A959</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>jirasetuser</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Set JIRA User</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>CE6CBE19-E16D-4A0A-A9D7-82645143F036</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>AD68FEBD-E6F4-4FE1-97B7-1D5700934CC8</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -100,25 +202,6 @@
 			<string>B0D20967-B4B8-484F-AAA7-DF9C71F19093</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>AD68FEBD-E6F4-4FE1-97B7-1D5700934CC8</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -166,43 +249,44 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
 				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
+				<integer>0</integer>
 				<key>keyword</key>
-				<string>cs-update</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string></string>
-				<key>script</key>
-				<string>/usr/bin/python update.py "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
+				<string>jirasetpassword</string>
 				<key>subtext</key>
-				<string>About Crowdskout Alfred Workflow</string>
-				<key>title</key>
-				<string>cs-update</string>
-				<key>type</key>
-				<integer>0</integer>
+				<string></string>
+				<key>text</key>
+				<string>Set JIRA Password</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.input.keyword</string>
 			<key>uid</key>
-			<string>DE7E634F-2849-44A0-9EBF-8C0391F74AAA</string>
+			<string>063AE9C7-A413-413F-A274-92CD0A820EA7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python jira-settings.py --password "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>E770E85C-BC99-4E41-BD62-11048DE36B1D</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -249,17 +333,118 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/bin/python jira-settings.py --clear</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C12A48F7-43F9-4568-9051-29B09C597A98</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>jiraclearuser</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Clear JIRA Credential Settings</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>92E42786-7E33-4D4E-B354-401B0BDA773D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>cs-update</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>/usr/bin/python update.py {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>About Crowdskout Alfred Workflow</string>
+				<key>title</key>
+				<string>cs-update</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DE7E634F-2849-44A0-9EBF-8C0391F74AAA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>063AE9C7-A413-413F-A274-92CD0A820EA7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>490</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
 		<key>6684B104-AF44-4230-8B96-15995CE261C7</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
 			<integer>180</integer>
+		</dict>
+		<key>92E42786-7E33-4D4E-B354-401B0BDA773D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>490</integer>
+			<key>ypos</key>
+			<integer>340</integer>
 		</dict>
 		<key>AD68FEBD-E6F4-4FE1-97B7-1D5700934CC8</key>
 		<dict>
@@ -275,21 +460,49 @@
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>C12A48F7-43F9-4568-9051-29B09C597A98</key>
+		<dict>
+			<key>xpos</key>
+			<integer>680</integer>
+			<key>ypos</key>
+			<integer>340</integer>
+		</dict>
+		<key>CE6CBE19-E16D-4A0A-A9D7-82645143F036</key>
+		<dict>
+			<key>xpos</key>
+			<integer>490</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
 		<key>DE7E634F-2849-44A0-9EBF-8C0391F74AAA</key>
 		<dict>
 			<key>colorindex</key>
 			<integer>3</integer>
 			<key>xpos</key>
-			<integer>570</integer>
+			<integer>50</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>470</integer>
+		</dict>
+		<key>E770E85C-BC99-4E41-BD62-11048DE36B1D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>680</integer>
+			<key>ypos</key>
+			<integer>190</integer>
+		</dict>
+		<key>E95F4370-65BF-4A45-BFEB-997CCDB7A959</key>
+		<dict>
+			<key>xpos</key>
+			<integer>680</integer>
+			<key>ypos</key>
+			<integer>50</integer>
 		</dict>
 		<key>F8F31907-4A8B-4E2B-830C-53FA46CA200F</key>
 		<dict>
 			<key>xpos</key>
 			<integer>50</integer>
 			<key>ypos</key>
-			<integer>330</integer>
+			<integer>310</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

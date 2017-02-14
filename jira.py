@@ -123,11 +123,16 @@ class TicketWorkflow(Workflow):
                       valid=True,
                       arg=ticket_url,
                       icon=u'icon.png')
+
+        username = wf.settings.get('user', None)
+        if not username:
+            return
+        password = wf.get_password(username, u'jira')
         time.sleep(0.8)
 
         jql = urllib.quote('key="{0}"'.format(ticket_number))
 
-        for ticket_number, ticket_title in self.search_from_api(jql=jql, fields='id,key,summary', max=1):
+        for ticket_number, ticket_title in self.search_from_api(username, password, jql=jql, fields='id,key,summary', max=1):
             ticket_url = self.ticket_url(ticket_number)
             self.add_item(title=ticket_title,
                           subtitle=ticket_url,
@@ -144,8 +149,13 @@ class TicketWorkflow(Workflow):
                       arg=u"{0}/issues/?jql={1}".format(BASE_JIRA_URL, jql),
                       icon=u'icon.png')
 
+        username = wf.settings.get('user', None)
+        if not username:
+            return
+        password = wf.get_password(username, u'jira')
+        # password = u'JC?s6J"r(o_BAva8Dp'
         time.sleep(0.8)
-        for ticket_number, ticket_title in self.search_from_api(jql=jql, fields='id,key,summary', max=8):
+        for ticket_number, ticket_title in self.search_from_api(username, password, jql=jql, fields='id,key,summary', max=8):
             ticket_url = self.ticket_url(ticket_number)
             self.add_item(title=ticket_number,
                           subtitle=ticket_title,
@@ -154,7 +164,7 @@ class TicketWorkflow(Workflow):
                           icon=u'icon.png')
 
     @staticmethod
-    def search_from_api(jql, fields, max):
+    def search_from_api(username, password, jql, fields, max):
         """
         Given keywords, search it through JIRA API, return the ticket number and title of results
         :param jql: keyword for searching
@@ -164,8 +174,7 @@ class TicketWorkflow(Workflow):
         # https://developer.atlassian.com/jiradev/jira-apis/jira-rest-apis/jira-rest-api-tutorials/jira-rest-api-example-query-issues
         api_url = "{0}/rest/api/2/search?jql={1}&maxResults={2}&fields={3}".format(BASE_JIRA_URL, jql, max, fields)
         request = urllib2.Request(api_url)
-        # TODO: user/pass input config
-        api_base64string = base64.b64encode('{0}:{1}'.format('user', 'pwd'))
+        api_base64string = base64.b64encode('{0}:{1}'.format(username, password))
         request.add_header("Authorization", "Basic %s" % api_base64string)
         try:
             request_result = urllib2.urlopen(request).read()

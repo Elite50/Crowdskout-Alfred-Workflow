@@ -4,7 +4,7 @@ import sys
 from workflow import Workflow, ICON_INFO
 
 
-GITHUB_SLUG = 'Elite50/Crowdskout-Alfred-Workflow'
+GITHUB_SLUG = 'crowdskout/Crowdskout-Alfred-Workflow'
 VERSION = open(os.path.join(os.path.dirname(__file__),
                             'version')).read().strip()
 
@@ -12,12 +12,16 @@ log = None
 
 
 def main(wf):
+    # workflow:update requires args
     query = None
     if len(wf.args):
         query = wf.args[0]
 
     wf.add_item(u'Current version : {}'.format(VERSION),
                 u'Version currently installed',
+                icon=ICON_INFO)
+    wf.add_item(u'Current JIRA user: {}'.format(wf.settings.get('user')),
+                u'JIRA username',
                 icon=ICON_INFO)
 
     wf.send_feedback()
