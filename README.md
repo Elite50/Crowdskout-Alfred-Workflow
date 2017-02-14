@@ -15,4 +15,23 @@ Crowdskout Alfred Workflow
 | `crowdskout {endpoint}` | Jump to somewhere in the app |
 | `cs {endpoint}` | Alias of `crowdskout` |
 | `jira {options} {query}` | Jump to Crowdskout JIRA |
+| `jirasetuser {username}` | Set JIRA user name |
+| `jirasetpassword {password}` | Set JIRA password |
+| `jiraclearuser` | Clear JIRA credential settings |
 | `cs-update workflow:update` | Run manual update |
+
+
+Available JIRA options
+
+| Option | Description |
+| ------- | ------------|
+| `open` | Jump to ticket with given ticket number |
+| `search` | Search tickets with given keywords |
+| `current_sprint` | Open the kanban of current sprint |
+| `backlog` | Open the backlog list |
+| `create` | Create a new JIRA ticket |
+| `my_open_issue` | List of my open tickets |
+| `report_by_me` | List of tickets reported by me |
+| `reports` | Report page |
+| `components` | Components page |
+| `data_import` | Data import board |
