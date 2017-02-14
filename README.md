@@ -20,8 +20,10 @@ Crowdskout Alfred Workflow
 | `jiraclearuser` | Clear JIRA credential settings |
 | `cs-update workflow:update` | Run manual update |
 
+JIRA credentials are not required, but they enable advanced ticket searching in `open` and `search` commands.
 
-Available JIRA options
+
+Available JIRA options:
 
 | Option | Description |
 | ------- | ------------|
